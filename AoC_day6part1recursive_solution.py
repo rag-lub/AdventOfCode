@@ -1,5 +1,5 @@
 import time
-def ReadInput(filename):
+def read_input(filename):
     inp1 = {}
     with open(filename,"r") as f:
         for line in f:
@@ -14,17 +14,17 @@ def recur(dc,orbiter):
         return 1+recur(dc,dc[orbiter])
 
 def main_rec():
-    orbits = ReadInput("input.txt")
+    orbits = read_input("input.txt")
     counter = 0
-    for object in orbits.keys():
-        counter +=recur(orbits,object)
+    for obj in orbits.keys():
+        counter +=recur(orbits,obj)
     return counter
 
 def main_wh():
-    orbits = ReadInput("input.txt")
+    orbits = read_input("input.txt")
     counter = 0
-    for object in orbits.keys():
-        cur_orbiter = orbits[object]
+    for obj in orbits.keys():
+        cur_orbiter = orbits[obj]
         counter+=1
         while cur_orbiter != "COM":
             cur_orbiter = orbits[cur_orbiter]
@@ -37,5 +37,5 @@ t3=time.time()
 b = main_wh()
 t4=time.time()
 
-print(f"Answer for recursive soution:{a}, total run time ={t1-t0}")
-print(f"Answer for iterative soution:{b}, total run time ={t3-t4}")
+print(f"Answer for recursive solution:{a}, total run time ={t1-t0}")
+print(f"Answer for iterative solution:{b}, total run time ={t4-t3}")
